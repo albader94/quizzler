@@ -1,10 +1,8 @@
-
-import 'package:quizzler/main.dart';
-
 import 'questions.dart';
 
 class QuizBrain {
   int _questionNumber = 0;
+
   List<Question> _questionBank = [
     Question('Some cats are actually allergic to humans', true),
     Question('You can lead a cow down stairs but not up stairs.', false),
@@ -45,5 +43,17 @@ class QuizBrain {
 
   bool getQuestionAnswer(){
     return _questionBank[_questionNumber].questionAnswer!;
+  }
+
+  bool quizFinished(){
+    if(_questionNumber >= _questionBank.length - 1){
+      return true;
+    } else{
+      return false;
+    }
+  }
+
+  void reset(){
+    _questionNumber = 0;
   }
 }
